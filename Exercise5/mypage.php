@@ -1,3 +1,27 @@
+<?php
+include_once 'dbconfig.php';
+if(isset($_POST['submit']))
+{
+    // variables for input data
+    $name = $_POST['name'];
+    $nickname = $_POST['nickname'];
+    $email = $_POST['email'];
+    $home = $_POST['home'];
+    $cell = $_POST['cell'];
+    $comment = $_POST['comment'];
+    $gender = $_POST['gender'];
+    // variables for input data
+
+    // sql query for inserting data into database
+
+    $sql_query = "INSERT INTO users(name,nickname,email,home,cell,message,gender) VALUES('$name','$nickname','$email','$home','$cell','$comment','$gender')";
+    mysqli_query($con, $sql_query);
+
+    // sql query for inserting data into database
+
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <body background="bg.png">
@@ -70,8 +94,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $name = test_input($_POST["name"]);
     // check if name only contains letters and whitespace
-    if (!preg_match("/^[0-9a-zA-Z]+$/;",$name)) {
-      $nameErr = "Only letters and Numbers"; 
+    if (!preg_match("/^[a-zA-Z]*$/",$name)) {
+      $nameErr = "Only letters and Numbers";
     }
   }
   if (empty($_POST["nickname"])) {
@@ -98,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $home = test_input($_POST["home"]);
     // check if name only contains letters and whitespace
-    if (!preg_match("/^[0-9a-zA-Z]+$/;",$home)) {
+    if (!preg_match("/^[a-zA-Z]*$/",$home)) {
       $homeErr = "Only letters and Numbers"; 
     }
   }
@@ -186,7 +210,7 @@ echo "<br>";
 <br>
 <a href="http://www.twitter.com/">Twitter Link</a>
 <br>
-
+<a href="index.php" class=button>Messages</a>
 </center>
 </body>
 </html>

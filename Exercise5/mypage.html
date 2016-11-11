@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+<?php
+include_once 'dbconfig.php';
+if(isset($_POST['btn-save']))
+{
+ // variables for input data
+ $first_name = $_POST['first_name'];
+ $last_name = $_POST['last_name'];
+ $city_name = $_POST['city_name'];
+ // variables for input data
+ 
+ // sql query for inserting data into database
+ 
+        $sql_query = "INSERT INTO users(first_name,last_name,user_city) VALUES('$first_name','$last_name','$city_name')";
+ mysqli_query($con, $sql_query);
+        
+        // sql query for inserting data into database
+}
+?>
+
 <html>
 <body background="bg.png">
 
@@ -36,6 +55,34 @@ table, th, td {
   </tr>
 </table>
 <br>
+
+<div id="header">
+ <div id="content">
+    <label>CRUD Operations With PHP and MySql - By Cleartuts</label>
+    </div>
+</div>
+
+<div id="body">
+ <div id="content">
+    <form method="post">
+    <table align="center">
+    <tr>
+    <td><input type="text" name="first_name" placeholder="First Name" value="<?php echo $fetched_row['first_name']; ?>" required /></td>
+    </tr>
+    <tr>
+    <td><input type="text" name="last_name" placeholder="Last Name" value="<?php echo $fetched_row['last_name']; ?>" required /></td>
+    </tr>
+    <tr>
+    <td><input type="text" name="city_name" placeholder="City" value="<?php echo $fetched_row['user_city']; ?>" required /></td>
+    </tr>
+    <tr>
+    <td><button type="submit" name="btn-update"><strong>SAVE</strong></button>
+    </tr>
+    </table>
+    </form>
+    </div>
+</div>
+
 <p>Nicolai Louise B. Caasi, also known as "nics" she loves music and eating as well and aiming to be a web developer someday.<p>
 <br>
 
