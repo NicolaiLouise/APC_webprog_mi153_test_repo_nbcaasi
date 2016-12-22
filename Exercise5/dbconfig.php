@@ -1,7 +1,7 @@
 
 <?php
 
-$host = "localhost";
+$host = "localhost"; 
 $user = "root";
 $password = "";
 $datbase = "dbtuts";
