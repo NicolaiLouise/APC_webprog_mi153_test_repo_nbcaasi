@@ -4,9 +4,11 @@
  
 <?php echo form_open('news/create'); ?>    
     <table>
+	
         <tr>
             <td><label for="title">Title</label></td>
             <td><input type="input" name="title" size="50" /></td>
+			
         </tr>
         <tr>
             <td><label for="text">Text</label></td>
