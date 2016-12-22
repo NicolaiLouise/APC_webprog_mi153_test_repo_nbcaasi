@@ -3,6 +3,7 @@
 	<head>
 	
 		<title> CodeIgniter Tutorial </title>
+		
 	</head>
 	<body> 
 		<h1> Simple CRUD </h1>
