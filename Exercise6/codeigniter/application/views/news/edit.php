@@ -4,6 +4,7 @@
  
 <?php echo form_open('news/edit/'.$news_item['id']); ?>
     <table>
+	
         <tr>
 		
             <td><label for="title">Title</label></td>
