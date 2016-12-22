@@ -8,7 +8,7 @@ if(isset($_GET['edit_id']))
  $fetched_row=mysqli_fetch_array($result_set);
 	
 }
-if(isset($_POST['btn-update']))
+if(isset($_POST['btn-update'])) 
 {
  // variables for input data
  $name = $_POST['name'];
