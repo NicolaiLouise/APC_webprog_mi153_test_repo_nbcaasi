@@ -63,7 +63,7 @@ if(isset($_POST['btn-cancel']))
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
-<center>
+<center>  
 
 <div id="header">
  <div id="content">
