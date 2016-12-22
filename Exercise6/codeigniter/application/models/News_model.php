@@ -6,53 +6,58 @@ class News_model extends CI_Model {
         $this->load->database();
     }
     
-    public function get_news($slug = FALSE)
+    public function get_news($User_ID = FALSE)
     {
-        if ($slug === FALSE)
+        if ($User_ID === FALSE)
         {
-            $query = $this->db->get('news');
+            $query = $this->db->get('userinfo');
             return $query->result_array();
         }
  
-        $query = $this->db->get_where('news', array('slug' => $slug));
+        $query = $this->db->get_where('userinfo', array('User_ID' => $User_ID));
         return $query->row_array();
     }
     
-    public function get_news_by_id($id = 0)
+    public function get_news_by_id($User_ID = 0)
     {
-        if ($id === 0)
+        if ($User_ID === 0)
         {
-            $query = $this->db->get('news');
+            $query = $this->db->get('userinfo');
             return $query->result_array();
         }
  
-        $query = $this->db->get_where('news', array('id' => $id));
+        $query = $this->db->get_where('userinfo', array('User_ID' => $User_ID));
         return $query->row_array();
     }
     
-    public function set_news($id = 0)
+    public function set_news($User_ID = 0)
     {
         $this->load->helper('url');
  
         $slug = url_title($this->input->post('title'), 'dash', TRUE);
  
         $data = array(
-            'title' => $this->input->post('title'),
-            'slug' => $slug,
-            'text' => $this->input->post('text')
+            'User_ID' => $User_ID,
+			'Name' => $this->input->post('Name'),
+            'Nickname' => $this->input->post('Nickname'),
+			'Email' => $this->input->post('Email'),
+			'Home_Address' => $this->input->post('Home_Address'),
+			'Gender' => $this->input->post('Gender'),
+			'Cp_Num' => $this->input->post('Cp_Num'),
+			'Comment' => $this->input->post('Comment')
         );
         
-        if ($id == 0) {
-            return $this->db->insert('news', $data);
+        if ($User_ID == 0) {
+            return $this->db->insert('userinfo', $data);
         } else {
-            $this->db->where('id', $id);
-            return $this->db->update('news', $data);
+            $this->db->where('User_ID', $User_ID);
+            return $this->db->update('userinfo', $data);
         }
     }
     
-    public function delete_news($id)
+    public function delete_news($User_ID)
     {
-        $this->db->where('id', $id);
-        return $this->db->delete('news');
+        $this->db->where('User_ID', $User_ID);
+        return $this->db->delete('userinfo');
     }
 }

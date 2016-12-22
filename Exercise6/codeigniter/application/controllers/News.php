@@ -2,9 +2,7 @@
 class News extends CI_Controller {
  
     public function __construct()
-    {   
-	
-	
+    {
         parent::__construct();
         $this->load->model('news_model');
         $this->load->helper('url_helper');
@@ -12,24 +10,22 @@ class News extends CI_Controller {
  
     public function index()
     {
-        $data['news'] = $this->news_model->get_news();
-        $data['title'] = 'News archive';
+        $data['userinfo'] = $this->news_model->get_news();
+        $data['title'] = 'Website Visitors';
  
         $this->load->view('templates/header', $data);
         $this->load->view('news/index', $data);
         $this->load->view('templates/footer');
     }
  
-    public function view($slug = NULL)
+    public function view($User_ID = NULL)
     {
-        $data['news_item'] = $this->news_model->get_news($slug);
+        $data['news_item'] = $this->news_model->get_news($User_ID);
         
         if (empty($data['news_item']))
         {
             show_404();
         }
- 
-        $data['title'] = $data['news_item']['title'];
  
         $this->load->view('templates/header', $data);
         $this->load->view('news/view', $data);
@@ -43,8 +39,13 @@ class News extends CI_Controller {
  
         $data['title'] = 'Create a news item';
  
-        $this->form_validation->set_rules('title', 'Title', 'required');
-        $this->form_validation->set_rules('text', 'Text', 'required');
+        $this->form_validation->set_rules('Name', 'Name', 'required');
+        $this->form_validation->set_rules('Nickname', 'Nickname', 'required');
+		$this->form_validation->set_rules('Email', 'Email', 'required');
+        $this->form_validation->set_rules('Home_Address', 'Home address', 'required');
+		$this->form_validation->set_rules('Gender', 'Gender', 'required');
+        $this->form_validation->set_rules('CP_num', 'Cellphone number');
+		$this->form_validation->set_rules('Comment', 'Comment', 'required');
  
         if ($this->form_validation->run() === FALSE)
         {
@@ -64,9 +65,9 @@ class News extends CI_Controller {
     
     public function edit()
     {
-        $id = $this->uri->segment(3);
+        $User_ID = $this->uri->segment(3);
         
-        if (empty($id))
+        if (empty($User_ID))
         {
             show_404();
         }
@@ -75,10 +76,15 @@ class News extends CI_Controller {
         $this->load->library('form_validation');
         
         $data['title'] = 'Edit a news item';        
-        $data['news_item'] = $this->news_model->get_news_by_id($id);
+        $data['news_item'] = $this->news_model->get_news_by_id($User_ID);
         
-        $this->form_validation->set_rules('title', 'Title', 'required');
-        $this->form_validation->set_rules('text', 'Text', 'required');
+        $this->form_validation->set_rules('Name', 'Name', 'required');
+        $this->form_validation->set_rules('Nickname', 'Nickname', 'required');
+		$this->form_validation->set_rules('Email', 'Email', 'required');
+        $this->form_validation->set_rules('Home_Address', 'Home address', 'required');
+		$this->form_validation->set_rules('Gender', 'Gender', 'required');
+        $this->form_validation->set_rules('CP_num', 'Cellphone number');
+		$this->form_validation->set_rules('Comment', 'Comment', 'required');
  
         if ($this->form_validation->run() === FALSE)
         {
@@ -89,7 +95,7 @@ class News extends CI_Controller {
         }
         else
         {
-            $this->news_model->set_news($id);
+            $this->news_model->set_news($User_ID);
             //$this->load->view('news/success');
             redirect( base_url() . 'index.php/news');
         }
@@ -97,16 +103,16 @@ class News extends CI_Controller {
     
     public function delete()
     {
-        $id = $this->uri->segment(3);
+        $User_ID = $this->uri->segment(3);
         
-        if (empty($id))
+        if (empty($User_ID))
         {
             show_404();
         }
                 
-        $news_item = $this->news_model->get_news_by_id($id);
+        $news_item = $this->news_model->get_news_by_id($User_ID);
         
-        $this->news_model->delete_news($id);        
+        $this->news_model->delete_news($User_ID);        
         redirect( base_url() . 'index.php/news');        
     }
 }
