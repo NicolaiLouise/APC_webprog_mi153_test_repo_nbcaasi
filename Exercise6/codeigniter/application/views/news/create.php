@@ -13,7 +13,7 @@
         <tr>
 		
             <td><label  for="text">Text</label></td>
-            <td><textarea name="text" rows="10" cols="40"></textarea></td>
+            <td><textarea  name="text" rows="10" cols="40"></textarea></td>
 			
         </tr>
         <tr>
