@@ -19,7 +19,7 @@ if(isset($_POST['btn-update']))
  $comment = $_POST['comment'];  
  $gender = $_POST['gender'];  
 
- // variables for input data
+ // variables for input data 
 
  // sql query for update data into database
  $sql_query = "UPDATE users SET name='$name',nickname='$nickname',email='$email',home='$email',cell='$cell',message='$comment',gender='$gender' WHERE user_id=".$_GET['edit_id'];
