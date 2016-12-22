@@ -11,8 +11,10 @@
 			
         </tr>
         <tr>
+		
             <td><label for="text">Text</label></td>
             <td><textarea name="text" rows="10" cols="40"><?php echo $news_item['text'] ?></textarea></td>
+			
         </tr>
         <tr>
             <td></td>
