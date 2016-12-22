@@ -73,7 +73,7 @@ if(isset($_POST['btn-cancel']))
 
 
 <div id="body">  
- <div id="content">
+ <div id="content">  
     <form method="post">
     <table align="center">
     <tr>
