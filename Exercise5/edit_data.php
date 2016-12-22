@@ -11,7 +11,7 @@ if(isset($_GET['edit_id']))
 if(isset($_POST['btn-update'])) 
 {
  // variables for input data
- $name = $_POST['name'];
+ $name = $_POST['name']; 
  $nickname = $_POST['nickname'];
  $email = $_POST['email'];
  $home = $_POST['home'];
