@@ -67,7 +67,7 @@ if(isset($_POST['btn-cancel']))
 
 <div id="header">
  <div id="content">
-    <label>EDIT DATA</label>
+    <label>EDIT DATA</label>  
     </div>
 </div>
 
