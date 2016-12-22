@@ -2,7 +2,7 @@
 <?php
 
 $host = "localhost"; 
-$user = "root";
+$user = "root"; 
 $password = "";
 $datbase = "dbtuts";
 $con = mysqli_connect($host,$user,$password);
