@@ -14,7 +14,7 @@ if(isset($_POST['btn-update']))
  $name = $_POST['name']; 
  $nickname = $_POST['nickname']; 
  $email = $_POST['email'];
- $home = $_POST['home'];
+ $home = $_POST['home'];  
  $cell = $_POST['cell'];
  $comment = $_POST['comment'];
  $gender = $_POST['gender'];
