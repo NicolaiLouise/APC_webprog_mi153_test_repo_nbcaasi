@@ -22,6 +22,7 @@ if(isset($_POST['btn-update']))
  $comment = $_POST['comment'];  
  $gender = $_POST['gender'];  
 
+	
  // variables for input data 
 
  // sql query for update data into database 
