@@ -20,7 +20,7 @@ if(isset($_GET['delete_id'])
 <title>MESSAGES</title>
 <link rel="stylesheet" href="style.css" type="text/css" />
 <script type="text/javascript">
-function edt_id(id)
+function edt_id(id)  
 {
  if(confirm('Sure to edit ?'))
  {
