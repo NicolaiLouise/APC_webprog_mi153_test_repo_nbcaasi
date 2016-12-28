@@ -10,6 +10,8 @@ if(isset($_GET['delete_id'])
  mysqli_query($con, $sql_query);
  header("Location: $_SERVER[PHP_SELF]");
 }
+   
+   
 // delete condition
 ?>
 
